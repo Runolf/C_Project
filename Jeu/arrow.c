@@ -2,6 +2,44 @@
 #include <stdlib.h>
 #include "arrow.h"
 
+void flushStdinBuffer(void)
+{
+    int c = 0;
+
+    while(c != '\n' && c != EOF)
+        c = getchar();
+}
+
+void Menu(char * quiver)
+{
+	flushStdinBuffer();
+	int Choice = 0;
+	
+	
+	printf("\n\t\t\t|___MENU___|\n");
+	printf("1. Fill quiver| 2. See quiver state | 3. Shoot|\n");
+	
+	scanf("%d", &Choice);
+	
+	switch(Choice)
+	{
+		case 1:
+			FillQuiver(quiver);
+			break;
+		case 2:
+			QuiverState(quiver);
+			break;
+		case 3:
+			Shoot(quiver);
+			break;
+		default: 
+			printf("bad key\n");
+			Menu(quiver);
+			break;
+		
+	}
+}
+
 void Shoot(char * quiver)
 {
 //	flushStdinBuffer();
@@ -44,46 +82,6 @@ void Shoot(char * quiver)
 	
 	Menu(quiver);
 	
-}
-
-void Menu(char * quiver)
-{
-	flushStdinBuffer();
-	int Choice = 0;
-	
-	
-	printf("\n\t\t\t|___MENU___|\n");
-	printf("1. Fill quiver| 2. See quiver state | 3. Shoot|\n");
-	
-	scanf("%d", &Choice);
-	
-	switch(Choice)
-	{
-		case 1:
-			FillQuiver(quiver);
-			break;
-		case 2:
-			QuiverState(quiver);
-			break;
-		case 3:
-			Shoot(quiver);
-			break;
-		default: 
-			printf("bad key\n");
-			Menu(quiver);
-			break;
-		
-	}
-	
-	
-}
-
-void flushStdinBuffer(void)
-{
-    int c = 0;
-
-    while(c != '\n' && c != EOF)
-        c = getchar();
 }
 
 void QuiverState(char * quiver)
