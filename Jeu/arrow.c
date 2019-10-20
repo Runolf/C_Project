@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "arrow.h"
 
+// https://github.com/Runolf/C_Project/invitations
 void flushStdinBuffer(void)
 {
     int c = 0;
